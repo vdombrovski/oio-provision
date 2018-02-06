@@ -1,0 +1,12 @@
+- hosts: all
+  become : false
+  gather_facts: true
+  any_errors_fatal: true
+
+  vars:
+    openio_zk_cluster_ip: "{{ groups['openio_zk_cluster'] }}"
+    openio_redis_cluster_ip: "{{ groups['openio_redis_cluster'] }}"
+    conscience_ip: "{{ groups['openio_conscience'] | first }}"
+
+  roles:
+    - role: ansible-role-openio-sds

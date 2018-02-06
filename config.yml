@@ -1,0 +1,8 @@
+# OpenIO provisioner config file
+
+openio: 3
+openio_directory_m0: 3
+openio_directory_m1: 3
+openio_conscience: 1
+openio_zk_cluster: 3
+openio_redis_cluster: 3

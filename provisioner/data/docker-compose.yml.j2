@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    {% for n in range(nodes['openio']) %}
+    node{{loop.index}}:
+        image: openio/node
+        tty: true
+        command: "/bin/bash -c \"/etc/init.d/ssh start && /bin/bash\""
+        networks:
+          openio:
+            ipv4_address: 172.30.128.{{loop.index + 1}}
+    {% endfor %}
+
+networks:
+  openio:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.30.128.0/24

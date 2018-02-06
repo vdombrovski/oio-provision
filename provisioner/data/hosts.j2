@@ -1,0 +1,10 @@
+[openio]
+172.30.128.[2:{{nodes['openio'] + 1}}] ansible_connection=ssh ansible_user=root ansible_ssh_private_key_file=/root/id_rsa
+
+{% for cat in ['openio_directory_m0', 'openio_directory_m1', 'openio_conscience', 'openio_zk_cluster', 'openio_redis_cluster'] %}
+[{{cat}}]
+172.30.128.[2:{{nodes[cat] + 1}}]
+{% endfor %}
+
+[all:children]
+openio

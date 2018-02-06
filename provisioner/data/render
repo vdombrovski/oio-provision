@@ -1,0 +1,9 @@
+#!/usr/bin/env python2
+
+import yaml
+from jinja2 import Template
+
+with open('/root/hosts.j2') as f:
+    with open('/root/config.yml') as f2:
+        with open('/root/hosts', 'wb') as f3:
+            f3.write(Template(f.read()).render(nodes=yaml.load(f2.read())))
