@@ -15,7 +15,7 @@ boot:
 	docker run -ti -v $(shell pwd)/docker-compose.yml:/root/docker-compose.yml -v $(shell pwd)/config.yml:/root/config.yml openio/provisioner:latest /root/generate
 	docker-compose up -d
 	docker run -ti --net=oioprovision_openio -v $(shell pwd)/config.yml:/root/config.yml \
-	openio/provisioner /bin/bash -c "/root/render && ansible-playbook -i /root/hosts /root/playbook.yml --extra-vars openio_bootstrap=1"
+	openio/provisioner /bin/bash -c "/root/render && ansible-playbook -i /root/hosts /root/playbook.yml --extra-vars openio_bootstrap=True"
 
 update:
 	echo "" > docker-compose.yml
