@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 build_provisioner:
 	# docker build -t openio/node:latest openio-node/
 	pushd $(shell pwd)/provisioner && docker build --build-arg ts=$(shell date +%s) -t openio/provisioner:latest . && popd
