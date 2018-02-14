@@ -72,11 +72,6 @@ Login onto a node and verify that more services have been added
 docker exec  -ti oioprovision_node1_1 openio cluster list --oio-ns OPENIO
 ```
 
-You should see 5 different IPs of servers, and **no scores=0**. If you do, unlock the scores manually
-```
-docker exec  -ti oioprovision_node1_1 openio cluster unlockall --oio-ns OPENIO
-```
-
 Stop cluster
 ---
 
@@ -96,4 +91,3 @@ TODO
 
 - volume configuration
 - swift integration
-- more!
