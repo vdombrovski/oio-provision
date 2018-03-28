@@ -5,7 +5,7 @@ services:
     node{{loop.index}}:
         image: openio/node
         tty: true
-        command: "/bin/bash -c \"/etc/init.d/ssh start && /bin/bash\""
+        command: "/bin/bash -c \"rsyslogd && /etc/init.d/sshd start && /bin/bash\""
         networks:
           openio:
             ipv4_address: 172.30.128.{{loop.index + 1}}

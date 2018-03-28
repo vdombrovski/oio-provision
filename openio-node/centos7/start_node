@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rsyslogd
+/etc/init.d/sshd start
+/bin/bash

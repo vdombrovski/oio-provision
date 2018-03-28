@@ -5,11 +5,17 @@ build_provisioner:
 	pushd $(shell pwd)/provisioner && docker build --build-arg ts=$(shell date +%s) -t openio/provisioner:latest . && popd
 
 build_node:
-	pushd $(shell pwd)/openio-node && docker build --build-arg ts=$(shell date +%s) -t openio/node . && popd
+	pushd $(shell pwd)/openio-node/ubuntu && docker build --build-arg ts=$(shell date +%s) -t openio/node . && popd
+
+build_node_ubuntu:
+	pushd $(shell pwd)/openio-node/ubuntu && docker build --build-arg ts=$(shell date +%s) -t openio/node . && popd
+
+build_node_centos:
+	pushd $(shell pwd)/openio-node/centos7 && docker build --build-arg ts=$(shell date +%s) -t openio/node . && popd
 
 buildall:
 	pushd $(shell pwd)/provisioner && docker build --build-arg ts=$(shell date +%s) -t openio/provisioner:latest . && popd
-	pushd $(shell pwd)/openio-node && docker build --build-arg ts=$(shell date +%s) -t openio/node . && popd
+	pushd $(shell pwd)/openio-node/ubuntu && docker build --build-arg ts=$(shell date +%s) -t openio/node . && popd
 
 boot:
 	echo "" > docker-compose.yml
